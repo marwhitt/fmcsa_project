@@ -179,3 +179,10 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+# Custom GCP security configurations
+# ----------------------------------
+# Block all JSON files in the workspace as a safety fall back
+*.json
+# Block any local key folders if you accidentally copied them inside 
+gcp_keys/
