@@ -11,12 +11,12 @@ From zero to running analytical tables in ~30 minutes with a free GCP account.
 
 Before you start, confirm you have:
 
-- [ ] A Google account
-- [ ] A GCP project created at [console.cloud.google.com](https://console.cloud.google.com)
+- [x] A Google account
+- [x] A GCP project created at [console.cloud.google.com](https://console.cloud.google.com)
   — free tier is sufficient; set a billing alert at $1 as a safeguard
-- [ ] The `bq` CLI installed: [cloud.google.com/bigquery/docs/bq-command-line-tool](https://cloud.google.com/bigquery/docs/bq-command-line-tool)
+- [x] The `bq` CLI installed: [cloud.google.com/bigquery/docs/bq-command-line-tool](https://cloud.google.com/bigquery/docs/bq-command-line-tool)
   — or use the BigQuery web console to run SQL; `bq load` is the only CLI command required
-- [ ] ~500 MB of local disk space for the FMCSA downloads
+- [x] ~500 MB of local disk space for the FMCSA downloads
 
 ---
 
