@@ -186,3 +186,8 @@ cython_debug/
 *.json
 # Block any local key folders if you accidentally copied them inside 
 gcp_keys/
+# ----------------------------------
+# FMCSA raw data (multi-GB, re-fetchable; see DOWNLOADS.md and scripts/)
+data/
+fmcsa__raw_data/
+FMCSA_*.csv

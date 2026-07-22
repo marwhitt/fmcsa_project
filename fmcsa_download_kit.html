@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FMCSA Carrier Data: Download Kit</title>
+<style>
+  :root{--ink:#1a2332;--sub:#5a6675;--line:#e3e7ee;--card:#ffffff;--bg:#f4f6f9;--accent:#0b5394;--accent-ink:#ffffff;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;padding:40px 20px;}
+  .wrap{max-width:860px;margin:0 auto;}
+  h1{font-size:26px;letter-spacing:-0.02em;margin-bottom:6px;}
+  .sub{color:var(--sub);margin-bottom:22px;font-size:14.5px;}
+  .snapshot{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin-bottom:26px;font-size:13.5px;}
+  .snapshot b{font-size:14px;}
+  .snapshot table{width:100%;border-collapse:collapse;margin-top:10px;}
+  .snapshot th,.snapshot td{text-align:left;padding:6px 8px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums;}
+  .snapshot th{color:var(--sub);font-weight:600;border-top:none;font-size:12.5px;text-transform:uppercase;letter-spacing:0.04em;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 24px;margin-bottom:18px;}
+  .card h2{font-size:18px;margin-bottom:2px;}
+  .official{color:var(--sub);font-size:13px;margin-bottom:10px;}
+  .grain{display:inline-block;background:#eef3fa;color:var(--accent);border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:600;margin-bottom:12px;}
+  .meta{color:var(--sub);font-size:13.5px;margin-bottom:14px;}
+  .btn{display:inline-block;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;font-size:14.5px;padding:10px 18px;border-radius:8px;}
+  .btn:hover{background:#094276;}
+  .alt{margin-left:12px;font-size:13.5px;color:var(--accent);text-decoration:none;}
+  .alt:hover{text-decoration:underline;}
+  .note{color:var(--sub);font-size:13px;margin-top:24px;border-top:1px solid var(--line);padding-top:14px;}
+  .note a{color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>FMCSA Carrier Data: Download Kit</h1>
+  <p class="sub">Three MCMIS extracts, now published on the DOT Open Data Portal (the original FMCSA "Carrier Data Reports" page has been retired). Each button starts a full CSV export.</p>
+
+  <div class="snapshot">
+    <b>Snapshot record</b> (retrieved 2026-07-21 19:52 UTC)
+    <table>
+      <tr><th>File</th><th>Portal last updated</th><th>Latest record</th><th>Rows</th></tr>
+      <tr><td>Motor Carrier Census Data</td><td>2026-07-10</td><td>registry snapshot</td><td>4,437,562</td></tr>
+      <tr><td>Large Truck and Bus Crash Data</td><td>2026-07-08</td><td>2026-07-16</td><td>4,967,095</td></tr>
+      <tr><td>Motor Carrier Inspection Data</td><td>2026-07-05</td><td>2026-05-19</td><td>8,195,106</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Motor Carrier Census Data</h2>
+    <p class="official">Official name: Company Census File (dataset az4n-8mr2)</p>
+    <span class="grain">One row per carrier</span>
+    <p class="meta">Identity, status, fleet size (power units, drivers), self-reported VMT (MCS-150 mileage and year), hazmat and revocation flags. Includes active, inactive, and pending registrations. About 1.5 GB uncompressed.</p>
+    <a class="btn" href="https://data.transportation.gov/api/views/az4n-8mr2/rows.csv?accessType=DOWNLOAD">Download CSV</a>
+    <a class="alt" href="https://data.transportation.gov/Trucking-and-Motorcoaches/Company-Census-File/az4n-8mr2/about_data">dataset page</a>
+  </div>
+
+  <div class="card">
+    <h2>Large Truck and Bus Crash Data</h2>
+    <p class="official">Official name: Crash File (dataset aayw-vxb3)</p>
+    <span class="grain">One row per crash involvement</span>
+    <p class="meta">State police crash reports for motor carrier vehicles: date, location, severity (fatalities, injuries, tow-away), recordability flags, conditions. A multi-carrier crash appears once per involved carrier. About 2 GB uncompressed.</p>
+    <a class="btn" href="https://data.transportation.gov/api/views/aayw-vxb3/rows.csv?accessType=DOWNLOAD">Download CSV</a>
+    <a class="alt" href="https://data.transportation.gov/Trucking-and-Motorcoaches/Crash-File/aayw-vxb3/about_data">dataset page</a>
+  </div>
+
+  <div class="card">
+    <h2>Motor Carrier Inspection Data</h2>
+    <p class="official">Official name: Vehicle Inspection File (dataset fx4q-ay7w)</p>
+    <span class="grain">One row per roadside inspection</span>
+    <p class="meta">Inspection level, date, state, and violation / out-of-service totals (driver, vehicle, hazmat). Rolling three-year window (2023-05 to 2026-05 at retrieval). About 3 GB uncompressed.</p>
+    <a class="btn" href="https://data.transportation.gov/api/views/fx4q-ay7w/rows.csv?accessType=DOWNLOAD">Download CSV</a>
+    <a class="alt" href="https://data.transportation.gov/Trucking-and-Motorcoaches/Vehicle-Inspection-File/fx4q-ay7w/about_data">dataset page</a>
+  </div>
+
+  <p class="note">Exports are generated server-side and can take a minute before the download starts. All three files key on <b>dot_number</b>. Documentation: <a href="https://www.fmcsa.dot.gov/registration/fmcsa-data-dissemination-program">FMCSA Open Data Program</a>.</p>
+</div>
+</body>
+</html>
