@@ -2,15 +2,19 @@
 
 ## Snapshot record
 
-Retrieved: 2026-07-21 19:52 UTC (from the DOT Open Data Portal, data.transportation.gov)
+**Snapshot in use: downloaded 2026-07-27** (files in `data/raw/`, verified 2026-07-28)
 
-| File | Portal "data last updated" | Latest record in data | Row count at retrieval |
-|---|---|---|---|
-| Motor Carrier Census Data | 2026-07-10 | n/a (registry snapshot) | 4,437,562 |
-| Large Truck and Bus Crash Data | 2026-07-08 | 2026-07-16 (max report_date) | 4,967,095 |
-| Motor Carrier Inspection Data | 2026-07-05 | 2026-05-19 (max insp_date) | 8,195,106 |
+| File | Downloaded file | Size |
+|---|---|---|
+| Motor Carrier Census Data | FMCSA_CENSUS1_20260727.csv | 1.71 GB |
+| Large Truck and Bus Crash Data | FMCSA_CRASH_20260727.csv | 1.86 GB |
+| Motor Carrier Inspection Data | FMCSA_INSPECTION_20260727.csv | 2.91 GB |
 
-Provenance note: the original FMCSA page (fmcsa.dot.gov/safety/carrier-safety/carrier-data-reports) now returns 404. These files moved to the DOT Open Data Portal under FMCSA's Open Data Program and are refreshed on a rolling (approximately daily) basis, so there is no single monthly snapshot date anymore. Record the retrieval date above as the snapshot date for any analysis.
+Official row counts for this snapshot: run `sql/00_validation/validation_pipeline.sql` Section 1 after loading and record the results here.
+
+Reference API check (2026-07-21 19:52 UTC, for context only; the portal drifts daily): census 4,437,562 rows (portal last updated 2026-07-10), crash 4,967,095 rows (max report_date 2026-07-16), inspections 8,195,106 rows (max insp_date 2026-05-19).
+
+Provenance note: the original FMCSA page (fmcsa.dot.gov/safety/carrier-safety/carrier-data-reports) now returns 404. These files moved to the DOT Open Data Portal under FMCSA's Open Data Program and are refreshed on a rolling (approximately daily) basis, so there is no single monthly snapshot date anymore. The snapshot date for analysis is the download date recorded above.
 
 ---
 
@@ -47,7 +51,7 @@ Current official name: **Vehicle Inspection File**
 - Dataset page: https://data.transportation.gov/Trucking-and-Motorcoaches/Vehicle-Inspection-File/fx4q-ay7w/about_data
 - API endpoint (SODA, filterable): https://data.transportation.gov/resource/fx4q-ay7w.json
 - Estimated uncompressed CSV size: roughly 3 GB
-- Coverage: rolling three-year window; `insp_date` spans 2023-05-21 to 2026-05-19 at retrieval
+- Coverage: rolling three-year window; 2023-05-21 to 2026-05-19 at the 2026-07-21 API check (the 2026-07-27 snapshot shifts to roughly 2023-07 through 2026-07; confirm via validation Section 1)
 - Key fields: `inspection_id`, `dot_number`, `insp_date`, `report_state`, `insp_level_id`, violation and out-of-service totals (`viol_total`, `oos_total`, plus driver/vehicle/hazmat breakdowns), `insp_carrier_name`
 - Note: this file carries violation TOTALS per inspection. Per-violation detail lives in a separate dataset ("Vehicle Inspections and Violations") if you need it later.
 

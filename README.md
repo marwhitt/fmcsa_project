@@ -1,6 +1,6 @@
 # Commercial Trucking Safety: A Carrier-Level Analysis of Crash Patterns and Risk Factors
 
-**Data snapshot: `2026-07-21`** (DOT Open Data Portal retrieval; portal "last updated": census 2026-07-10, crash 2026-07-08, inspections 2026-07-05. Row counts, links, and field lists in [DOWNLOADS.md](DOWNLOADS.md).)
+**Data snapshot: `2026-07-27`** (download date; files `FMCSA_*_20260727.csv` in `data/raw/`, 6.5 GB total. Links and reference counts in [DOWNLOADS.md](DOWNLOADS.md); official baseline row counts come from `sql/00_validation/validation_pipeline.sql` Section 1 after loading.)
 
 Portfolio project by Marvyn Whittaker. Stack: SQL (BigQuery) + Tableau. Data: FMCSA motor carrier safety records (MCMIS extracts).
 
@@ -55,7 +55,7 @@ Both write into `data/raw/` with the filenames [`REPRODUCE.md`](REPRODUCE.md) ex
 1. Crash grain is carrier involvement, not crash: a multi-carrier crash appears once per involved carrier. Deduplicate on `crash_id` when counting crashes.
 2. Census VMT (`mcs150_mileage`) is self-reported and can be stale; always pair with `mcs150_mileage_year` before computing rates.
 3. The census includes active, inactive, and pending carriers (4.4M rows); filter status before profiling.
-4. The inspection file is a rolling three-year window (2023-05 to 2026-05 at this snapshot), so inspection-based KPIs cannot reach back to 2020. Decision (2026-07-21): crash KPIs keep the 2020-2024 analytical window; inspection KPIs (OOS rates, violation rates) use the 2023-2026 window and are always reported with their own clearly disclosed date range.
+4. The inspection file is a rolling three-year window (roughly 2023-07 to 2026-07 for the 2026-07-27 snapshot; exact range from validation Section 1), so inspection-based KPIs cannot reach back to 2020. Decision (2026-07-21): crash KPIs keep the 2020-2024 analytical window; inspection KPIs (OOS rates, violation rates) use the 2023-2026 window and are always reported with their own clearly disclosed date range.
 5. Full raw loads can approach BigQuery's 10 GB free-tier storage cap; drop raw tables after staging, or pre-filter via the portal API.
 
 ## Sources

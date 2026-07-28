@@ -2,7 +2,7 @@
 
 From zero to running analytical tables in ~30 minutes with a free GCP account.
 
-**Snapshot date used in this analysis:** `2026-07-21` (DOT portal retrieval; portal "last updated": census 2026-07-10, crash 2026-07-08, inspections 2026-07-05. Full detail in `DOWNLOADS.md`.)
+**Snapshot date used in this analysis:** `2026-07-27` (download date; files `FMCSA_*_20260727.csv`. Reference detail in `DOWNLOADS.md`.)
 **BigQuery project used:** `[FILL IN YOUR GCP PROJECT ID]`
 
 ---
@@ -52,13 +52,13 @@ bash scripts/get_fmcsa_data.sh
 ```
 
 Notes for the new source: files are comma-delimited (the Step 3 pipe check should come up clean),
-headers are lowercase (`dot_number`, `mcs150_mileage`, `driver_oos_total`, ...) so expect to use the
-"common alternates" column in Step 2, and the full exports total roughly 7 GB: the crash file now
+headers are UPPERCASE (`DOT_NUMBER`, `MCS150_MILEAGE`, `DRIVER_OOS_TOTAL`, ...) and map to the
+"common alternates" column in Step 2 (full verified mapping: `docs/column_mapping.md`), and the full exports total roughly 7 GB: the crash file now
 carries multi-decade history and the census includes inactive carriers. The Texas 2020-2024 scope
 is applied later in staging SQL, or you can pre-filter smaller slices via the portal API
 (endpoints in `DOWNLOADS.md`).
 
-**Record the snapshot date** (the retrieval date in `DOWNLOADS.md`). Add it to the top of this file and to `README.md`. *(Done for 2026-07-21.)*
+**Record the snapshot date** (the retrieval date in `DOWNLOADS.md`). Add it to the top of this file and to `README.md`. *(Done for 2026-07-27.)*
 
 ---
 
