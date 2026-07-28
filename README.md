@@ -55,7 +55,7 @@ Both write into `data/raw/` with the filenames [`REPRODUCE.md`](REPRODUCE.md) ex
 1. Crash grain is carrier involvement, not crash: a multi-carrier crash appears once per involved carrier. Deduplicate on `crash_id` when counting crashes.
 2. Census VMT (`mcs150_mileage`) is self-reported and can be stale; always pair with `mcs150_mileage_year` before computing rates.
 3. The census includes active, inactive, and pending carriers (4.4M rows); filter status before profiling.
-4. The inspection file is a rolling three-year window (2023-05 to 2026-05 at this snapshot). Inspection-based KPIs cannot reach back to 2020; see the time-window note in the project plan.
+4. The inspection file is a rolling three-year window (2023-05 to 2026-05 at this snapshot), so inspection-based KPIs cannot reach back to 2020. Decision (2026-07-21): crash KPIs keep the 2020-2024 analytical window; inspection KPIs (OOS rates, violation rates) use the 2023-2026 window and are always reported with their own clearly disclosed date range.
 5. Full raw loads can approach BigQuery's 10 GB free-tier storage cap; drop raw tables after staging, or pre-filter via the portal API.
 
 ## Sources
